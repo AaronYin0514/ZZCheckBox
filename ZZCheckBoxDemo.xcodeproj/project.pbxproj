@@ -15,6 +15,14 @@
 		7785DF531C23995200A55CDE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7785DF511C23995200A55CDE /* LaunchScreen.storyboard */; };
 		7785DF5E1C23995200A55CDE /* ZZCheckBoxDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7785DF5D1C23995200A55CDE /* ZZCheckBoxDemoTests.m */; };
 		7785DF691C23995200A55CDE /* ZZCheckBoxDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7785DF681C23995200A55CDE /* ZZCheckBoxDemoUITests.m */; };
+		7785DF791C2399B400A55CDE /* ZZCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7785DF781C2399B400A55CDE /* ZZCheckBox.m */; };
+		7785DF7C1C239A3F00A55CDE /* ZZSingleCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7785DF7B1C239A3F00A55CDE /* ZZSingleCheckBox.m */; };
+		7785DF7F1C239A5400A55CDE /* ZZMutableCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7785DF7E1C239A5400A55CDE /* ZZMutableCheckBox.m */; };
+		7785DF821C239AA200A55CDE /* ZZCheckBoxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7785DF811C239AA200A55CDE /* ZZCheckBoxButton.m */; };
+		7785DF881C23CA5E00A55CDE /* but_select_press@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7785DF841C23CA5E00A55CDE /* but_select_press@3x.png */; };
+		7785DF891C23CA5E00A55CDE /* but_select_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7785DF851C23CA5E00A55CDE /* but_select_press@2x.png */; };
+		7785DF8A1C23CA5E00A55CDE /* but_select_nor@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7785DF861C23CA5E00A55CDE /* but_select_nor@3x.png */; };
+		7785DF8B1C23CA5E00A55CDE /* but_select_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7785DF871C23CA5E00A55CDE /* but_select_nor@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +59,19 @@
 		7785DF641C23995200A55CDE /* ZZCheckBoxDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZZCheckBoxDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7785DF681C23995200A55CDE /* ZZCheckBoxDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZCheckBoxDemoUITests.m; sourceTree = "<group>"; };
 		7785DF6A1C23995200A55CDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7785DF771C2399B400A55CDE /* ZZCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCheckBox.h; sourceTree = "<group>"; };
+		7785DF781C2399B400A55CDE /* ZZCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCheckBox.m; sourceTree = "<group>"; };
+		7785DF7A1C239A3F00A55CDE /* ZZSingleCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSingleCheckBox.h; sourceTree = "<group>"; };
+		7785DF7B1C239A3F00A55CDE /* ZZSingleCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZSingleCheckBox.m; sourceTree = "<group>"; };
+		7785DF7D1C239A5400A55CDE /* ZZMutableCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMutableCheckBox.h; sourceTree = "<group>"; };
+		7785DF7E1C239A5400A55CDE /* ZZMutableCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMutableCheckBox.m; sourceTree = "<group>"; };
+		7785DF801C239AA200A55CDE /* ZZCheckBoxButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCheckBoxButton.h; sourceTree = "<group>"; };
+		7785DF811C239AA200A55CDE /* ZZCheckBoxButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCheckBoxButton.m; sourceTree = "<group>"; };
+		7785DF831C23B14A00A55CDE /* ZZCheckBoxHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCheckBoxHeader.h; sourceTree = "<group>"; };
+		7785DF841C23CA5E00A55CDE /* but_select_press@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "but_select_press@3x.png"; sourceTree = "<group>"; };
+		7785DF851C23CA5E00A55CDE /* but_select_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "but_select_press@2x.png"; sourceTree = "<group>"; };
+		7785DF861C23CA5E00A55CDE /* but_select_nor@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "but_select_nor@3x.png"; sourceTree = "<group>"; };
+		7785DF871C23CA5E00A55CDE /* but_select_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "but_select_nor@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +122,7 @@
 		7785DF421C23995100A55CDE /* ZZCheckBoxDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7785DF761C23997000A55CDE /* ZZCheckBox */,
 				7785DF461C23995200A55CDE /* AppDelegate.h */,
 				7785DF471C23995200A55CDE /* AppDelegate.m */,
 				7785DF491C23995200A55CDE /* ViewController.h */,
@@ -138,6 +160,26 @@
 				7785DF6A1C23995200A55CDE /* Info.plist */,
 			);
 			path = ZZCheckBoxDemoUITests;
+			sourceTree = "<group>";
+		};
+		7785DF761C23997000A55CDE /* ZZCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				7785DF841C23CA5E00A55CDE /* but_select_press@3x.png */,
+				7785DF851C23CA5E00A55CDE /* but_select_press@2x.png */,
+				7785DF861C23CA5E00A55CDE /* but_select_nor@3x.png */,
+				7785DF871C23CA5E00A55CDE /* but_select_nor@2x.png */,
+				7785DF831C23B14A00A55CDE /* ZZCheckBoxHeader.h */,
+				7785DF771C2399B400A55CDE /* ZZCheckBox.h */,
+				7785DF781C2399B400A55CDE /* ZZCheckBox.m */,
+				7785DF7A1C239A3F00A55CDE /* ZZSingleCheckBox.h */,
+				7785DF7B1C239A3F00A55CDE /* ZZSingleCheckBox.m */,
+				7785DF7D1C239A5400A55CDE /* ZZMutableCheckBox.h */,
+				7785DF7E1C239A5400A55CDE /* ZZMutableCheckBox.m */,
+				7785DF801C239AA200A55CDE /* ZZCheckBoxButton.h */,
+				7785DF811C239AA200A55CDE /* ZZCheckBoxButton.m */,
+			);
+			path = ZZCheckBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,9 +288,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7785DF891C23CA5E00A55CDE /* but_select_press@2x.png in Resources */,
 				7785DF531C23995200A55CDE /* LaunchScreen.storyboard in Resources */,
+				7785DF8B1C23CA5E00A55CDE /* but_select_nor@2x.png in Resources */,
 				7785DF501C23995200A55CDE /* Assets.xcassets in Resources */,
+				7785DF8A1C23CA5E00A55CDE /* but_select_nor@3x.png in Resources */,
 				7785DF4E1C23995200A55CDE /* Main.storyboard in Resources */,
+				7785DF881C23CA5E00A55CDE /* but_select_press@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +320,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7785DF4B1C23995200A55CDE /* ViewController.m in Sources */,
+				7785DF7F1C239A5400A55CDE /* ZZMutableCheckBox.m in Sources */,
 				7785DF481C23995200A55CDE /* AppDelegate.m in Sources */,
+				7785DF791C2399B400A55CDE /* ZZCheckBox.m in Sources */,
 				7785DF451C23995100A55CDE /* main.m in Sources */,
+				7785DF821C239AA200A55CDE /* ZZCheckBoxButton.m in Sources */,
+				7785DF7C1C239A3F00A55CDE /* ZZSingleCheckBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +551,7 @@
 				7785DF6F1C23995200A55CDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7785DF701C23995200A55CDE /* Build configuration list for PBXNativeTarget "ZZCheckBoxDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +560,7 @@
 				7785DF721C23995200A55CDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7785DF731C23995200A55CDE /* Build configuration list for PBXNativeTarget "ZZCheckBoxDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +569,7 @@
 				7785DF751C23995200A55CDE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
