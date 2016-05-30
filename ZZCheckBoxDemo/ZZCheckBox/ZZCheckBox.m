@@ -64,7 +64,9 @@
 }
 
 -(void)dealloc {
-    [self removeObserver:self forKeyPath:@"selected"];
+    for (ZZCheckBoxButton *boxButton in _checkBoxButtonArray) {
+        [boxButton removeObserver:self forKeyPath:@"selected"];
+    }
 }
 
 @end

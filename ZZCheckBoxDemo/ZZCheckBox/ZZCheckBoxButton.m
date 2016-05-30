@@ -8,6 +8,9 @@
 
 #import "ZZCheckBoxButton.h"
 
+#define ButtonImageNameNormal @"but_select_nor"
+#define ButtonImageNamePress @"but_select_press"
+
 @implementation ZZCheckBoxButton
 
 -(instancetype)initWithFrame:(CGRect)frame atIndex:(NSInteger)index {
@@ -15,8 +18,8 @@
         self.backgroundColor = [UIColor blueColor];
         self.userInteractionEnabled = YES;
         _index = index;
-        [self setImage:[UIImage imageNamed:@"but_select_nor"] forState:UIControlStateNormal];
-        [self setImage:[UIImage imageNamed:@"but_select_press"] forState:UIControlStateSelected];
+        [self setImage:[UIImage imageNamed:ButtonImageNameNormal] forState:UIControlStateNormal];
+        [self setImage:[UIImage imageNamed:ButtonImageNamePress] forState:UIControlStateSelected];
     }
     return self;
 }
