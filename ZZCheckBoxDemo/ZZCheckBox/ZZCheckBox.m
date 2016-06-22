@@ -8,6 +8,7 @@
 
 #import "ZZCheckBox.h"
 #import "ZZCheckBoxButton.h"
+#import "ZZSingleCheckBox.h"
 
 @implementation ZZCheckBox
 
@@ -60,6 +61,9 @@
 
 #pragma mark - Actions
 -(void)buttonDidTouchUpInside:(ZZCheckBoxButton *)button {
+    if ([self isKindOfClass:[ZZSingleCheckBox class]] && button.selected) {
+        return;
+    }
     button.selected = !button.selected;
 }
 
