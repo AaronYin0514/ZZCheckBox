@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ViewController : UIViewController
 
+//-(NSInteger)numberOfRowsInCheckBox:(ZZCheckBox *)checkBox;
 
 @end
 

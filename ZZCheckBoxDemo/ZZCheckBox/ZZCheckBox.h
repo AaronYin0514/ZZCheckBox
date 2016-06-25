@@ -7,6 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSUInteger, CheckBoxType) {
+    CheckBoxTypeSingleCheckBox = 100,
+    CheckBoxTypeMutableCheckBox
+};
+
 @protocol ZZCheckBoxDelegate;
 @protocol ZZCheckBoxDataSource;
 
@@ -26,15 +33,17 @@
  */
 @property (assign, nonatomic) NSInteger tag;
 /**
+ *  选择框类型
+ */
+@property (assign, nonatomic, readonly) CheckBoxType type;
+/**
+ *  选中的索引
+ */
+@property (assign, nonatomic, readonly) NSUInteger selectedIndex;
+/**
  *  button的数组
  */
-@property (strong, nonatomic) NSMutableArray *checkBoxButtonArray;
-/**
- *  向box中添加button
- *
- *  @param button 添加的button
- */
--(void)addCheckBoxButton:(ZZCheckBoxButton *)button;
+@property (strong, nonatomic, readonly) NSArray *checkBoxButtonArray;
 /**
  *  判断Button是否已经在Box中了
  *
@@ -43,16 +52,14 @@
  *  @return YES存在  NO不存在
  */
 -(BOOL)judgeCheckBoxButtonAllreadyInBox:(ZZCheckBoxButton *)button;
-
 /**
- *  初始化方法
+ *  初始化
  *
- *  @param dataSource 数据源代理
- *  @param delegate   代理
+ *  @param type 选择框类型
  *
- *  @return 
+ *  @return
  */
-//-(instancetype)initWithDataSource:(id)dataSource andDelegate:(id)delegate;
+-(instancetype)initWithCheckBoxType:(CheckBoxType)type;
 
 @end
 
@@ -60,12 +67,38 @@
 
 @optional
 /**
+ *  默认选中的索引
+ *
+ *  @param checkBox checkBox
+ *
+ *  @return 返回默认选中的索引
+ */
+-(NSUInteger)defaultSelectedIndexInCheckBox:(ZZCheckBox *)checkBox;
+/**
+ *  将要选中时的回调
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *
+ *  @return 是否选中，返回NO不能选中，YES可以选中
+ */
+-(BOOL)checkBox:(ZZCheckBox *)checkBox willSelectedAtIndex:(NSInteger)index;
+/**
  *  选中时的回调方法
  *
  *  @param checkBox checkBox
  *  @param index    button的index
  */
 -(void)checkBox:(ZZCheckBox *)checkBox didSelectedAtIndex:(NSInteger)index;
+/**
+ *  将要取消选中时的回调
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *
+ *  @return 是否取消选中，返回NO不能选中，YES可以选中
+ */
+-(BOOL)checkBox:(ZZCheckBox *)checkBox willDeselectedAtIndex:(NSInteger)index;
 /**
  *  取消选中时的回调方法
  *
@@ -81,5 +114,9 @@
 @required
 
 -(NSInteger)numberOfRowsInCheckBox:(ZZCheckBox *)checkBox;
+
+-(CGRect)checkBox:(ZZCheckBox *)checkBox frameAtIndex:(NSInteger)index;
+
+-(UIView *)checkBox:(ZZCheckBox *)checkBox supperViewAtIndex:(NSInteger)index;
 
 @end

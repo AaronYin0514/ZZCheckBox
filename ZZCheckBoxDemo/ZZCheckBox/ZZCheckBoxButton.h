@@ -10,8 +10,6 @@
 
 @interface ZZCheckBoxButton : UIButton
 
-@property (assign, nonatomic) NSInteger index;
-
 -(instancetype)initWithFrame:(CGRect)frame atIndex:(NSInteger)index;
 
 @end

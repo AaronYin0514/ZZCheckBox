@@ -15,11 +15,11 @@
     ZZCheckBoxButton *button = object;
     if (button.selected) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(checkBox: didSelectedAtIndex:)]) {
-            [self.delegate checkBox:self didSelectedAtIndex:button.index];
+            [self.delegate checkBox:self didSelectedAtIndex:button.tag];
         }
     } else {
         if (self.delegate && [self.delegate respondsToSelector:@selector(checkBox: didDeselectedAtIndex:)]) {
-            [self.delegate checkBox:self didDeselectedAtIndex:button.index];
+            [self.delegate checkBox:self didDeselectedAtIndex:button.tag];
         }
     }
 }

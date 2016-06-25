@@ -7,13 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "ZZCheckBoxHeader.h"
+#import "ZZCheckBox.h"
 
-@interface ViewController () <ZZCheckBoxDelegate>
+@interface ViewController ()<ZZCheckBoxDelegate, ZZCheckBoxDataSource> 
 {
-    ZZSingleCheckBox *_singleCheckBox;
-    ZZMutableCheckBox *_mutableCheckBox;
+    ZZCheckBox *_singleCheckBox;
+    ZZCheckBox *_mutableCheckBox;
 }
+
 @end
 
 @implementation ViewController
@@ -22,39 +23,40 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _singleCheckBox = [[ZZSingleCheckBox alloc] init];
+    _singleCheckBox = [[ZZCheckBox alloc] initWithCheckBoxType:CheckBoxTypeSingleCheckBox];
     _singleCheckBox.tag = 1;
     _singleCheckBox.delegate = self;
-    ZZCheckBoxButton *button1 = [[ZZCheckBoxButton alloc] initWithFrame:CGRectMake(100, 50, 30, 30) atIndex:0];
-    ZZCheckBoxButton *button2 = [[ZZCheckBoxButton alloc] initWithFrame:CGRectMake(100, 90, 30, 30) atIndex:1];
-    [_singleCheckBox addCheckBoxButton:button1];
-    [_singleCheckBox addCheckBoxButton:button2];
+    _singleCheckBox.dataSource = self;
     
-    [self.view addSubview:button1];
-    [self.view addSubview:button2];
-    
-    
-    
-    _mutableCheckBox = [[ZZMutableCheckBox alloc] init];
+    _mutableCheckBox = [[ZZCheckBox alloc] initWithCheckBoxType:CheckBoxTypeMutableCheckBox];
     _mutableCheckBox.tag = 2;
     _mutableCheckBox.delegate = self;
-    ZZCheckBoxButton *button3 = [[ZZCheckBoxButton alloc] initWithFrame:CGRectMake(100, 250, 30, 30) atIndex:0];
-    ZZCheckBoxButton *button4 = [[ZZCheckBoxButton alloc] initWithFrame:CGRectMake(100, 290, 30, 30) atIndex:1];
-    [_mutableCheckBox addCheckBoxButton:button3];
-    [_mutableCheckBox addCheckBoxButton:button4];
-    
-    [self.view addSubview:button3];
-    [self.view addSubview:button4];
-    
+    _mutableCheckBox.dataSource = self;
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - ZZCheckBoxDataSource
+-(NSInteger)numberOfRowsInCheckBox:(ZZCheckBox *)checkBox {
+    return 2;
+}
+
+-(CGRect)checkBox:(ZZCheckBox *)checkBox frameAtIndex:(NSInteger)index {
+    if (checkBox.tag == 1) {
+        return CGRectMake(100, 50 + 40 * index, 30, 30);
+    } else {
+        return CGRectMake(100, 250 + 40 * index, 30, 30);
+    }
+}
+
+-(UIView *)checkBox:(ZZCheckBox *)checkBox supperViewAtIndex:(NSInteger)index {
+    return self.view;
 }
 
 #pragma mark - ZZCheckBoxDelegate
+-(NSUInteger)defaultSelectedIndexInCheckBox:(ZZCheckBox *)checkBox {
+    return 1;
+}
+
 -(void)checkBox:(ZZCheckBox *)checkBox didDeselectedAtIndex:(NSInteger)index {
     if (checkBox.tag == 1) {
         NSLog(@"ZZSingleCheckBox Deselected %ld Button", index);

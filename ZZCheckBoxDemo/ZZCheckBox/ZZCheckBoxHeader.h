@@ -9,9 +9,7 @@
 #ifndef ZZCheckBoxHeader_h
 #define ZZCheckBoxHeader_h
 
-#import "ZZCheckBox.h"
-#import "ZZSingleCheckBox.h"
-#import "ZZMutableCheckBox.h"
-#import "ZZCheckBoxButton.h"
+#define ButtonImageNameNormal @"but_select_nor"
+#define ButtonImageNamePress @"but_select_press"
 
 #endif /* ZZCheckBoxHeader_h */

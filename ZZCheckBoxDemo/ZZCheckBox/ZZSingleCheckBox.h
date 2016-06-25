@@ -10,6 +10,4 @@
 
 @interface ZZSingleCheckBox : ZZCheckBox
 
-@property (assign, nonatomic) NSInteger selectedIndex;
-
 @end
