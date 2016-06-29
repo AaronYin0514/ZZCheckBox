@@ -112,19 +112,60 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
 @protocol ZZCheckBoxDataSource <NSObject>
 
 @required
-
+/**
+ *  checkBox包含多少项
+ *
+ *  @param checkBox checkBox
+ *
+ *  @return 返回checkBox包含多少项
+ */
 -(NSInteger)numberOfRowsInCheckBox:(ZZCheckBox *)checkBox;
-
+/**
+ *  checkBox的父视图
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *
+ *  @return 返回checkBox的父视图
+ */
 -(UIView *)checkBox:(ZZCheckBox *)checkBox supperViewAtIndex:(NSInteger)index;
 
 @optional
-
+/**
+ *  返回第index个button的frame
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *
+ *  @return 返回第index个button的frame
+ */
 -(CGRect)checkBox:(ZZCheckBox *)checkBox frameAtIndex:(NSInteger)index;
-
+/**
+ *  返回第index个button的标题
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *
+ *  @return 返回第index个button的标题
+ */
 -(NSString *)checkBox:(ZZCheckBox *)checkBox titleForCheckBoxAtIndex:(NSInteger)index;
-
+/**
+ *  返回第index个button的标题颜色
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *
+ *  @return 返回第index个button的标题颜色
+ */
 -(UIColor *)checkBox:(ZZCheckBox *)checkBox titleColorForCheckBoxAtIndex:(NSInteger)index;
-
+/**
+ *  返回第index个button的标题字体
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *
+ *  @return 返回第index个button的标题字体
+ */
 -(UIFont *)checkBox:(ZZCheckBox *)checkBox titleFontForCheckBoxAtIndex:(NSInteger)index;
 
 @end
