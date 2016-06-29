@@ -40,16 +40,35 @@
     return 2;
 }
 
+-(UIView *)checkBox:(ZZCheckBox *)checkBox supperViewAtIndex:(NSInteger)index {
+    return self.view;
+}
+
 -(CGRect)checkBox:(ZZCheckBox *)checkBox frameAtIndex:(NSInteger)index {
     if (checkBox.tag == 1) {
-        return CGRectMake(100, 50 + 40 * index, 30, 30);
+        return CGRectMake(100, 50 + 40 * index, 120, 30);
     } else {
         return CGRectMake(100, 250 + 40 * index, 30, 30);
     }
 }
 
--(UIView *)checkBox:(ZZCheckBox *)checkBox supperViewAtIndex:(NSInteger)index {
-    return self.view;
+-(NSString *)checkBox:(ZZCheckBox *)checkBox titleForCheckBoxAtIndex:(NSInteger)index {
+    if (checkBox.tag == 1) {
+        if (index == 0) {
+            return @"测试一";
+        } else {
+            return @"测试测试二";
+        }
+    }
+    return nil;
+}
+
+-(UIFont *)checkBox:(ZZCheckBox *)checkBox titleFontForCheckBoxAtIndex:(NSInteger)index {
+    return [UIFont systemFontOfSize:15];
+}
+
+-(UIColor *)checkBox:(ZZCheckBox *)checkBox titleColorForCheckBoxAtIndex:(NSInteger)index {
+    return [UIColor blueColor];
 }
 
 #pragma mark - ZZCheckBoxDelegate

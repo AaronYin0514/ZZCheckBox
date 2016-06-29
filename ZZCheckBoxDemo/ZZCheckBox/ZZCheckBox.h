@@ -115,8 +115,16 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
 
 -(NSInteger)numberOfRowsInCheckBox:(ZZCheckBox *)checkBox;
 
+-(UIView *)checkBox:(ZZCheckBox *)checkBox supperViewAtIndex:(NSInteger)index;
+
+@optional
+
 -(CGRect)checkBox:(ZZCheckBox *)checkBox frameAtIndex:(NSInteger)index;
 
--(UIView *)checkBox:(ZZCheckBox *)checkBox supperViewAtIndex:(NSInteger)index;
+-(NSString *)checkBox:(ZZCheckBox *)checkBox titleForCheckBoxAtIndex:(NSInteger)index;
+
+-(UIColor *)checkBox:(ZZCheckBox *)checkBox titleColorForCheckBoxAtIndex:(NSInteger)index;
+
+-(UIFont *)checkBox:(ZZCheckBox *)checkBox titleFontForCheckBoxAtIndex:(NSInteger)index;
 
 @end

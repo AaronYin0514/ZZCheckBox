@@ -48,11 +48,35 @@
     }
     
     NSMutableArray *tempMutableArray = [NSMutableArray arrayWithCapacity:count];
-    NSAssert([_dataSource respondsToSelector:@selector(checkBox:frameAtIndex:)], @"必须实现checkBox:frameAtIndex:方法");
     NSAssert([_dataSource respondsToSelector:@selector(checkBox:supperViewAtIndex:)], @"必须实现checkBoxSupperView方法");
     for (NSInteger i = 0; i < count; i++) {
-        CGRect frame = [_dataSource checkBox:self frameAtIndex:i];
+        CGRect frame = CGRectZero;
+        if ([_dataSource respondsToSelector:@selector(checkBox:frameAtIndex:)]) {
+            frame = [_dataSource checkBox:self frameAtIndex:i];
+        }
         ZZCheckBoxButton *button = [[ZZCheckBoxButton alloc] initWithFrame:frame atIndex:i];
+        if ([_dataSource respondsToSelector:@selector(checkBox:titleForCheckBoxAtIndex:)]) {
+            NSString *titleString = [_dataSource checkBox:self titleForCheckBoxAtIndex:i];
+            if (titleString.length) {
+                [button setTitle:titleString forState:UIControlStateNormal];
+                [button setTitle:titleString forState:UIControlStateSelected];
+                [button setTitle:titleString forState:UIControlStateHighlighted];
+            }
+        }
+        if ([_dataSource respondsToSelector:@selector(checkBox:titleColorForCheckBoxAtIndex:)]) {
+            UIColor *titleColor = [_dataSource checkBox:self titleColorForCheckBoxAtIndex:i];
+            if (titleColor) {
+                [button setTitleColor:titleColor forState:UIControlStateNormal];
+                [button setTitleColor:titleColor forState:UIControlStateSelected];
+                [button setTitleColor:titleColor forState:UIControlStateHighlighted];
+            }
+        }
+        if ([_dataSource respondsToSelector:@selector(checkBox:titleFontForCheckBoxAtIndex:)]) {
+            UIFont *font = [_dataSource checkBox:self titleFontForCheckBoxAtIndex:i];
+            if (font) {
+                button.titleLabel.font = font;
+            }
+        }
         [self addCheckBoxButton:button selectedStatus:(i == defaultSelectedIndex)];
         [tempMutableArray addObject:button];
         UIView *superView = [_dataSource checkBox:self supperViewAtIndex:i];

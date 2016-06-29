@@ -15,6 +15,8 @@
     if (self = [super initWithFrame:frame]) {
         self.userInteractionEnabled = YES;
         self.tag = index;
+        self.titleEdgeInsets = UIEdgeInsetsMake(0, 4, 0, 0);
+        self.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [self setImage:[UIImage imageNamed:ButtonImageNameNormal] forState:UIControlStateNormal];
         [self setImage:[UIImage imageNamed:ButtonImageNamePress] forState:UIControlStateSelected];
     }
