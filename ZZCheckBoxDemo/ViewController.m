@@ -9,11 +9,14 @@
 #import "ViewController.h"
 #import "ZZCheckBox.h"
 
-@interface ViewController ()<ZZCheckBoxDelegate, ZZCheckBoxDataSource> 
+@interface ViewController ()<ZZCheckBoxDelegate, ZZCheckBoxDataSource, ZZCheckBoxStoryboardDataSource>
 {
     ZZCheckBox *_singleCheckBox;
     ZZCheckBox *_mutableCheckBox;
+    ZZCheckBox *_storyboardCheckBox;
 }
+
+@property (strong, nonatomic) IBOutletCollection(ZZCheckBoxButton) NSArray *checkBoxButtonArray;
 
 @end
 
@@ -32,6 +35,11 @@
     _mutableCheckBox.tag = 2;
     _mutableCheckBox.delegate = self;
     _mutableCheckBox.dataSource = self;
+    
+    _storyboardCheckBox = [[ZZCheckBox alloc] initWithCheckBoxType:CheckBoxTypeSingleCheckBox];
+    _storyboardCheckBox.tag = 3;
+    _storyboardCheckBox.delegate = self;
+    _storyboardCheckBox.storyboardDataSource = self;
     
 }
 
@@ -92,5 +100,19 @@
         NSLog(@"ZZSingleCheckBox Selected %ld Button", index);
     }
 }
+
+#pragma mark - ZZCheckBoxStoryboardDataSource
+-(NSInteger)numberOfStoryboardRowsInCheckBox:(ZZCheckBox *)checkBox {
+    return self.checkBoxButtonArray.count;
+}
+
+-(ZZCheckBoxButton *)checkBox:(ZZCheckBox *)checkBox buttonAtIndex:(NSInteger)index {
+    if (index < self.checkBoxButtonArray.count) {
+        return self.checkBoxButtonArray[index];
+    }
+    return nil;
+}
+
+
 
 @end

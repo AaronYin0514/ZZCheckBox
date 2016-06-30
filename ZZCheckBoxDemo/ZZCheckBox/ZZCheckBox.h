@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "ZZCheckBoxButton.h"
 
 typedef NS_ENUM(NSUInteger, CheckBoxType) {
     CheckBoxTypeSingleCheckBox = 100,
@@ -16,8 +17,7 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
 
 @protocol ZZCheckBoxDelegate;
 @protocol ZZCheckBoxDataSource;
-
-@class ZZCheckBoxButton;
+@protocol ZZCheckBoxStoryboardDataSource;
 
 @interface ZZCheckBox : NSObject
 /**
@@ -25,9 +25,13 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
  */
 @property (weak, nonatomic) id <ZZCheckBoxDelegate> delegate;
 /**
- *  数据源代理
+ *  使用代码创建CheckBoxButton时设置的数据源代理，此代理不能与storyboardDataSource一起设置
  */
 @property (weak, nonatomic) id <ZZCheckBoxDataSource> dataSource;
+/**
+ *  使用storyboard创建CheckBoxButton时设置的数据源代理，此代理不能与dataSource一起设置
+ */
+@property (weak, nonatomic) id <ZZCheckBoxStoryboardDataSource> storyboardDataSource;
 /**
  *  标记
  */
@@ -169,5 +173,28 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
  *  @return 返回第index个button的标题字体
  */
 -(UIFont *)checkBox:(ZZCheckBox *)checkBox titleFontForCheckBoxAtIndex:(NSInteger)index;
+
+@end
+
+@protocol ZZCheckBoxStoryboardDataSource <NSObject>
+
+@required
+/**
+ *  checkBox包含多少项
+ *
+ *  @param checkBox checkBox
+ *
+ *  @return 返回checkBox包含多少项
+ */
+-(NSInteger)numberOfStoryboardRowsInCheckBox:(ZZCheckBox *)checkBox;
+/**
+ *  返回第index位置的按钮
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *
+ *  @return 返回第index位置的按钮
+ */
+-(ZZCheckBoxButton *)checkBox:(ZZCheckBox *)checkBox buttonAtIndex:(NSInteger)index;
 
 @end
