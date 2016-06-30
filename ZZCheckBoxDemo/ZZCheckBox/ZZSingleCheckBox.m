@@ -37,4 +37,18 @@
     }
 }
 
+#pragma mark - Actions
+-(void)buttonDidTouchUpInside:(ZZCheckBoxButton *)button {
+    if (button.selected) {
+        return;
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(checkBox:willSelectedAtIndex:)]) {
+        if ([self.delegate checkBox:self willSelectedAtIndex:button.tag]) {
+            button.selected = !button.selected;
+        }
+    } else {
+        button.selected = !button.selected;
+    }
+}
+
 @end

@@ -153,9 +153,6 @@
 
 #pragma mark - Actions
 -(void)buttonDidTouchUpInside:(ZZCheckBoxButton *)button {
-    if ([self isKindOfClass:[ZZSingleCheckBox class]] && button.selected) {
-        return;
-    }
     if (!button.selected) {
         if (_delegate && [_delegate respondsToSelector:@selector(checkBox:willSelectedAtIndex:)]) {
             if ([_delegate checkBox:self willSelectedAtIndex:button.tag]) {
