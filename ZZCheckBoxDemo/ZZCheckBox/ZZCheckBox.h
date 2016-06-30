@@ -61,6 +61,8 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
  */
 -(instancetype)initWithCheckBoxType:(CheckBoxType)type;
 
++(instancetype)new UNAVAILABLE_ATTRIBUTE;
+
 @end
 
 @protocol ZZCheckBoxDelegate <NSObject>

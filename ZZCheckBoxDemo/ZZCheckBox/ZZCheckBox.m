@@ -27,6 +27,10 @@
     return nil;
 }
 
+-(instancetype)init {
+    return [self initWithCheckBoxType:CheckBoxTypeSingleCheckBox];
+}
+
 -(void)dealloc {
     for (ZZCheckBoxButton *boxButton in _checkBoxButtonArray) {
         [boxButton removeObserver:self forKeyPath:@"selected"];
