@@ -26,9 +26,10 @@
     return nil;
 }
 
-//-(instancetype)init {
-//    return [self initWithCheckBoxType:CheckBoxTypeSingleCheckBox];
-//}
++(ZZCheckBox *)checkBoxWithCheckBoxType:(CheckBoxType)type {
+    ZZCheckBox *checkBox = [[ZZCheckBox alloc] initWithCheckBoxType:type];
+    return checkBox;
+}
 
 -(void)dealloc {
     for (ZZCheckBoxButton *boxButton in _checkBoxButtonArray) {

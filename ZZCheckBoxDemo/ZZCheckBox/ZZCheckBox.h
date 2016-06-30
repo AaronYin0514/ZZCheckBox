@@ -21,6 +21,16 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
 
 @interface ZZCheckBox : NSObject
 /**
+ *  初始化
+ *
+ *  @param type 选择框类型
+ *
+ *  @return
+ */
++(ZZCheckBox *)checkBoxWithCheckBoxType:(CheckBoxType)type;
+
++(instancetype)new UNAVAILABLE_ATTRIBUTE;
+/**
  *  代理，当选中和取消选择时回调
  */
 @property (weak, nonatomic) id <ZZCheckBoxDelegate> delegate;
@@ -56,16 +66,6 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
  *  @return YES存在  NO不存在
  */
 -(BOOL)judgeCheckBoxButtonAllreadyInBox:(ZZCheckBoxButton *)button;
-/**
- *  初始化
- *
- *  @param type 选择框类型
- *
- *  @return
- */
--(instancetype)initWithCheckBoxType:(CheckBoxType)type;
-
-+(instancetype)new UNAVAILABLE_ATTRIBUTE;
 
 @end
 

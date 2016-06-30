@@ -23,6 +23,7 @@
 		7785DF891C23CA5E00A55CDE /* but_select_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7785DF851C23CA5E00A55CDE /* but_select_press@2x.png */; };
 		7785DF8A1C23CA5E00A55CDE /* but_select_nor@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7785DF861C23CA5E00A55CDE /* but_select_nor@3x.png */; };
 		7785DF8B1C23CA5E00A55CDE /* but_select_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7785DF871C23CA5E00A55CDE /* but_select_nor@2x.png */; };
+		931A85FF1D24DE450048EB57 /* ZZCheckBoxGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 931A85FE1D24DE450048EB57 /* ZZCheckBoxGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		7785DF851C23CA5E00A55CDE /* but_select_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "but_select_press@2x.png"; sourceTree = "<group>"; };
 		7785DF861C23CA5E00A55CDE /* but_select_nor@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "but_select_nor@3x.png"; sourceTree = "<group>"; };
 		7785DF871C23CA5E00A55CDE /* but_select_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "but_select_nor@2x.png"; sourceTree = "<group>"; };
+		931A85FD1D24DE450048EB57 /* ZZCheckBoxGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCheckBoxGenerator.h; sourceTree = "<group>"; };
+		931A85FE1D24DE450048EB57 /* ZZCheckBoxGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCheckBoxGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				7785DF861C23CA5E00A55CDE /* but_select_nor@3x.png */,
 				7785DF871C23CA5E00A55CDE /* but_select_nor@2x.png */,
 				7785DF831C23B14A00A55CDE /* ZZCheckBoxHeader.h */,
+				931A85FD1D24DE450048EB57 /* ZZCheckBoxGenerator.h */,
+				931A85FE1D24DE450048EB57 /* ZZCheckBoxGenerator.m */,
 				7785DF771C2399B400A55CDE /* ZZCheckBox.h */,
 				7785DF781C2399B400A55CDE /* ZZCheckBox.m */,
 				7785DF7A1C239A3F00A55CDE /* ZZSingleCheckBox.h */,
@@ -321,6 +326,7 @@
 			files = (
 				7785DF4B1C23995200A55CDE /* ViewController.m in Sources */,
 				7785DF7F1C239A5400A55CDE /* ZZMutableCheckBox.m in Sources */,
+				931A85FF1D24DE450048EB57 /* ZZCheckBoxGenerator.m in Sources */,
 				7785DF481C23995200A55CDE /* AppDelegate.m in Sources */,
 				7785DF791C2399B400A55CDE /* ZZCheckBox.m in Sources */,
 				7785DF451C23995100A55CDE /* main.m in Sources */,
