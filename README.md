@@ -1,6 +1,8 @@
 # ZZCheckBox
 ## 简介
 一个简单的单选框和复选框
+## 效果图
+![Renderings](https://raw.githubusercontent.com/AaronYin0514/ZZCheckBox/master/Renderings.png =250x)
 ## 使用
 ### 单选框
 ```obj-c
