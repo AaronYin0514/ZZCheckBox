@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "ZZCheckBoxGenerator.h"
+#import "ZZCheckBox.h"
 
 @interface ViewController ()<ZZCheckBoxDelegate, ZZCheckBoxDataSource, ZZCheckBoxStoryboardDataSource>
 {
@@ -26,20 +26,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _singleCheckBox = [ZZCheckBoxGenerator checkBoxWithCheckBoxType:CheckBoxTypeSingleCheckBox];
+    _singleCheckBox = [ZZCheckBox checkBoxWithCheckBoxType:CheckBoxTypeSingleCheckBox];
     _singleCheckBox.tag = 1;
     _singleCheckBox.delegate = self;
     _singleCheckBox.dataSource = self;
     
-    _mutableCheckBox = [ZZCheckBoxGenerator checkBoxWithCheckBoxType:CheckBoxTypeMutableCheckBox];
+    _mutableCheckBox = [ZZCheckBox checkBoxWithCheckBoxType:CheckBoxTypeMutableCheckBox];
     _mutableCheckBox.tag = 2;
     _mutableCheckBox.delegate = self;
     _mutableCheckBox.dataSource = self;
     
-    _storyboardCheckBox = [ZZCheckBoxGenerator checkBoxWithCheckBoxType:CheckBoxTypeSingleCheckBox];
+    _storyboardCheckBox = [ZZCheckBox checkBoxWithCheckBoxType:CheckBoxTypeSingleCheckBox];
     _storyboardCheckBox.tag = 3;
     _storyboardCheckBox.delegate = self;
     _storyboardCheckBox.storyboardDataSource = self;
+    
+    ZZCheckBox *checkBox = [[ZZCheckBox alloc] init];
+    NSLog(@"%@", checkBox ? @"YES" : @"NO");
     
 }
 

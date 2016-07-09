@@ -12,23 +12,31 @@
 
 @implementation ZZCheckBox
 
-#pragma mark - Life Cycle
--(instancetype)initWithCheckBoxType:(CheckBoxType)type {
-    if (type == CheckBoxTypeSingleCheckBox) {
-        self = [[ZZSingleCheckBox alloc] init];
-        return self;
++(ZZCheckBox *)checkBoxWithCheckBoxType:(CheckBoxType)type {
+    ZZCheckBox *checkBox = nil;
+    switch (type) {
+        case CheckBoxTypeSingleCheckBox: {
+            checkBox = [[ZZSingleCheckBox alloc] init];
+            break;
+        }
+        case CheckBoxTypeMutableCheckBox: {
+            checkBox = [[ZZMutableCheckBox alloc] init];
+            break;
+        }
+        default:
+            break;
     }
-    if (type == CheckBoxTypeMutableCheckBox) {
-        self = [[ZZMutableCheckBox alloc] init];
-        return self;
-    }
-    _type = type;
-    return nil;
+    return checkBox;
 }
 
-+(ZZCheckBox *)checkBoxWithCheckBoxType:(CheckBoxType)type {
-    ZZCheckBox *checkBox = [[ZZCheckBox alloc] initWithCheckBoxType:type];
-    return checkBox;
+-(instancetype)init {
+    if (![self isKindOfClass:[ZZSingleCheckBox class]] && ![self isKindOfClass:[ZZMutableCheckBox class]]) {
+        return nil;
+    }
+    if (self = [super init]) {
+        
+    }
+    return self;
 }
 
 -(void)dealloc {
