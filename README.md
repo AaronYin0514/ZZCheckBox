@@ -6,21 +6,21 @@
 ## 使用
 ### 单选框
 ```obj-c
-_singleCheckBox = [ZZCheckBoxGenerator checkBoxWithCheckBoxType:CheckBoxTypeSingleCheckBox];
+_singleCheckBox = [ZZCheckBox checkBoxWithCheckBoxType:CheckBoxTypeSingleCheckBox];
 _singleCheckBox.tag = 1;
 _singleCheckBox.delegate = self;
 _singleCheckBox.dataSource = self;
 ```
 ### 复选框
 ```obj-c
-_mutableCheckBox = [ZZCheckBoxGenerator checkBoxWithCheckBoxType:CheckBoxTypeMutableCheckBox];
+_mutableCheckBox = [ZZCheckBox checkBoxWithCheckBoxType:CheckBoxTypeMutableCheckBox];
 _mutableCheckBox.tag = 2;
 _mutableCheckBox.delegate = self;
 _mutableCheckBox.dataSource = self;
 ```
 ### 使用storyboard创建时
 ```obj-c
-_storyboardCheckBox = [ZZCheckBoxGenerator checkBoxWithCheckBoxType:CheckBoxTypeSingleCheckBox];
+_storyboardCheckBox = [ZZCheckBox checkBoxWithCheckBoxType:CheckBoxTypeSingleCheckBox];
 _storyboardCheckBox.tag = 3;
 _storyboardCheckBox.delegate = self;
 _storyboardCheckBox.storyboardDataSource = self;
