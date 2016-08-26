@@ -82,6 +82,17 @@
     return [UIColor blueColor];
 }
 
+-(UIImage *)checkBox:(ZZCheckBox *)checkBox imageForCheckBoxAtIndex:(NSInteger)index forState:(UIControlState)state {
+    if (state == UIControlStateNormal) {
+        UIImage *image = [UIImage imageNamed:@""];
+        return image;
+    } else if (state == UIControlStateSelected) {
+        UIImage *image = [UIImage imageNamed:@""];
+        return image;
+    }
+    return nil;
+}
+
 #pragma mark - ZZCheckBoxDelegate
 -(NSUInteger)defaultSelectedIndexInCheckBox:(ZZCheckBox *)checkBox {
     return 1;

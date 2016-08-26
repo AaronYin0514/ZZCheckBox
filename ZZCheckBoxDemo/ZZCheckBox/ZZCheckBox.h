@@ -173,6 +173,26 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
  *  @return 返回第index个button的标题字体
  */
 -(UIFont *)checkBox:(ZZCheckBox *)checkBox titleFontForCheckBoxAtIndex:(NSInteger)index;
+/**
+ *  checkBox图片
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *  @param state    状态
+ *
+ *  @return checkBox图片
+ */
+-(UIImage *)checkBox:(ZZCheckBox *)checkBox imageForCheckBoxAtIndex:(NSInteger)index forState:(UIControlState)state;
+/**
+ *  checkBox背景图片
+ *
+ *  @param checkBox checkBox
+ *  @param index    button的index
+ *  @param state    状态
+ *
+ *  @return checkBox背景图片
+ */
+-(UIImage *)checkBox:(ZZCheckBox *)checkBox backgroundImageForCheckBoxAtIndex:(NSInteger)index forState:(UIControlState)state;
 
 @end
 

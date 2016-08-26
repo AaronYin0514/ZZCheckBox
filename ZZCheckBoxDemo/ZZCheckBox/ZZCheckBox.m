@@ -90,6 +90,28 @@
                 button.titleLabel.font = font;
             }
         }
+        if ([_delegate respondsToSelector:@selector(checkBox:imageForCheckBoxAtIndex:forState:)]) {
+            UIImage *image = [_dataSource checkBox:self imageForCheckBoxAtIndex:i forState:UIControlStateNormal];
+            if (image) {
+                [button setImage:image forState:UIControlStateNormal];
+                [button setImage:image forState:UIControlStateHighlighted];
+            }
+            UIImage *selectedImage = [_dataSource checkBox:self imageForCheckBoxAtIndex:i forState:UIControlStateSelected];
+            if (selectedImage) {
+                [button setImage:selectedImage forState:UIControlStateSelected];
+            }
+        }
+        if ([_delegate respondsToSelector:@selector(checkBox:backgroundImageForCheckBoxAtIndex:forState:)]) {
+            UIImage *image = [_dataSource checkBox:self backgroundImageForCheckBoxAtIndex:i forState:UIControlStateNormal];
+            if (image) {
+                [button setBackgroundImage:image forState:UIControlStateNormal];
+                [button setBackgroundImage:image forState:UIControlStateHighlighted];
+            }
+            UIImage *selectedImage = [_dataSource checkBox:self backgroundImageForCheckBoxAtIndex:i forState:UIControlStateSelected];
+            if (selectedImage) {
+                [button setBackgroundImage:selectedImage forState:UIControlStateSelected];
+            }
+        }
         [self addCheckBoxButton:button selectedStatus:(i == defaultSelectedIndex)];
         [tempMutableArray addObject:button];
         UIView *superView = [_dataSource checkBox:self supperViewAtIndex:i];
