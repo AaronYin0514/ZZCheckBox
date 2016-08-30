@@ -17,7 +17,6 @@
     if (button.selected) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(checkBox: didSelectedAtIndex:)]) {
             [self.delegate checkBox:self didSelectedAtIndex:button.tag];
-            [self changeCheckButtonSelectedStatusWithNowIndex:button.tag];
         }
     } else {
         if (self.delegate && [self.delegate respondsToSelector:@selector(checkBox: didDeselectedAtIndex:)]) {
@@ -32,6 +31,7 @@
         [self.checkBoxButtonArray enumerateObjectsUsingBlock:^(ZZCheckBoxButton *button, NSUInteger idx, BOOL * _Nonnull stop) {
             if (index != idx && button.selected) {
                 button.selected = NO;
+                *stop = YES;
             }
         }];
     }
@@ -40,13 +40,21 @@
 #pragma mark - Actions
 -(void)buttonDidTouchUpInside:(ZZCheckBoxButton *)button {
     if (button.selected) {
-        return;
+        if (self.delegate && [self.delegate respondsToSelector:@selector(canCancleCheckSingleCheckBox:)]) {
+            if (![self.delegate canCancleCheckSingleCheckBox:self]) {
+                return;
+            }
+        } else {
+            return;
+        }
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(checkBox:willSelectedAtIndex:)]) {
         if ([self.delegate checkBox:self willSelectedAtIndex:button.tag]) {
+            [self changeCheckButtonSelectedStatusWithNowIndex:button.tag];
             button.selected = !button.selected;
         }
     } else {
+        [self changeCheckButtonSelectedStatusWithNowIndex:button.tag];
         button.selected = !button.selected;
     }
 }

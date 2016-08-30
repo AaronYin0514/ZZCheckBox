@@ -112,6 +112,12 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
  *  @param index    button的index
  */
 -(void)checkBox:(ZZCheckBox *)checkBox didDeselectedAtIndex:(NSInteger)index;
+/**
+ *  只对单选起作用，返回yes表示可以取消单选，默认为no
+ *
+ *  @param checkBox checkBox
+ */
+-(BOOL)canCancleCheckSingleCheckBox:(ZZCheckBox *)checkBox;
 
 @end
 
