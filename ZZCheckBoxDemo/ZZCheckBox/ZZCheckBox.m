@@ -181,6 +181,50 @@
     return isAllreadyIn;
 }
 
+-(BOOL)selectItemAtIndex:(NSInteger)index {
+    if (index >= _checkBoxButtonArray.count) {
+        return NO;
+    }
+    ZZCheckBoxButton *button = _checkBoxButtonArray[index];
+    if (button.selected) {
+        return NO;
+    }
+    [self buttonDidTouchUpInside:button];
+    return YES;
+}
+
+-(BOOL)deselectItemAtIndex:(NSInteger)index {
+    if (index >= _checkBoxButtonArray.count) {
+        return NO;
+    }
+    ZZCheckBoxButton *button = _checkBoxButtonArray[index];
+    if (!button.selected) {
+        return NO;
+    }
+    [self buttonDidTouchUpInside:button];
+    return YES;
+}
+
+-(void)selectItemWithIndexArray:(NSArray<NSNumber *> *)items {
+    for (NSNumber *indexNumber in items) {
+        NSInteger index = [indexNumber integerValue];
+        [self selectItemAtIndex:index];
+    }
+}
+
+-(void)deselectItemWithIndexArray:(NSArray<NSNumber *> *)items {
+    for (NSNumber *indexNumber in items) {
+        NSInteger index = [indexNumber integerValue];
+        [self deselectItemAtIndex:index];
+    }
+}
+
+-(void)clear {
+    for (NSInteger index = 0; index < _checkBoxButtonArray.count; index++) {
+        [self deselectItemAtIndex:index];
+    }
+}
+
 #pragma mark - Actions
 -(void)buttonDidTouchUpInside:(ZZCheckBoxButton *)button {
     if (!button.selected) {

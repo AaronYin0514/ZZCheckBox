@@ -66,6 +66,34 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
  *  @return YES存在  NO不存在
  */
 -(BOOL)judgeCheckBoxButtonAllreadyInBox:(ZZCheckBoxButton *)button;
+/**
+ *  手动设置选中某项
+ *
+ *  @param index 需要设置的项的索引
+ */
+-(BOOL)selectItemAtIndex:(NSInteger)index;
+/**
+ *  手动设置取消选中某项
+ *
+ *  @param index 需要设置的项的索引
+ */
+-(BOOL)deselectItemAtIndex:(NSInteger)index;
+/**
+ *  手动设置选中某项，如果是单选框，则数组最后一个元素起作用
+ *
+ *  @param items 需要设置的项的索引数组
+ */
+-(void)selectItemWithIndexArray:(NSArray<NSNumber *> *)items;
+/**
+ *  手动设置取消选中某项，如果是单选框，则数组最后一个元素起作用
+ *
+ *  @param items 需要设置的项的索引数组
+ */
+-(void)deselectItemWithIndexArray:(NSArray<NSNumber *> *)items;
+/**
+ *  清空选择
+ */
+-(void)clear;
 
 @end
 
