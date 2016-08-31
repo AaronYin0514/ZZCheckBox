@@ -101,13 +101,13 @@ typedef NS_ENUM(NSUInteger, CheckBoxType) {
 
 @optional
 /**
- *  默认选中的索引
+ *  默认选中的索引,注意创建时不会走选中和去除选中状态的回调，需自行设置选中数据
  *
  *  @param checkBox checkBox
  *
- *  @return 返回默认选中的索引
+ *  @return 返回默认选中的索引数组
  */
--(NSUInteger)defaultSelectedIndexInCheckBox:(ZZCheckBox *)checkBox;
+-(NSArray<NSNumber *> *)defaultSelectedIndexInCheckBox:(ZZCheckBox *)checkBox;
 /**
  *  将要选中时的回调
  *

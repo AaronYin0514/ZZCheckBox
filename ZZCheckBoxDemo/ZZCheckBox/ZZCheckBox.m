@@ -55,11 +55,6 @@
     NSAssert([_dataSource respondsToSelector:@selector(numberOfRowsInCheckBox:)], @"必须实现numberOfRowsInCheckBox:方法");
     NSInteger count = [_dataSource numberOfRowsInCheckBox:self];
     
-    NSUInteger defaultSelectedIndex = 0;
-    if (_delegate && [_delegate respondsToSelector:@selector(defaultSelectedIndexInCheckBox:)]) {
-        defaultSelectedIndex = [_delegate defaultSelectedIndexInCheckBox:self];
-    }
-    
     NSMutableArray *tempMutableArray = [NSMutableArray arrayWithCapacity:count];
     NSAssert([_dataSource respondsToSelector:@selector(checkBox:supperViewAtIndex:)], @"必须实现checkBoxSupperView方法");
     for (NSInteger i = 0; i < count; i++) {
@@ -112,7 +107,27 @@
                 [button setBackgroundImage:selectedImage forState:UIControlStateSelected];
             }
         }
-        [self addCheckBoxButton:button selectedStatus:(i == defaultSelectedIndex)];
+        
+        NSArray<NSNumber *> *defaultSelectedIndexArray = nil;
+        if (_delegate && [_delegate respondsToSelector:@selector(defaultSelectedIndexInCheckBox:)]) {
+            defaultSelectedIndexArray = [_delegate defaultSelectedIndexInCheckBox:self];
+            if ([self isKindOfClass:[ZZSingleCheckBox class]]) {
+                NSUInteger defaultSelectedIndex = [defaultSelectedIndexArray.lastObject integerValue];
+                [self addCheckBoxButton:button selectedStatus:(i == defaultSelectedIndex)];
+            } else {
+                __block BOOL result = NO;
+                [defaultSelectedIndexArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    if (i == [obj integerValue]) {
+                        result = YES;
+                        *stop = YES;
+                    }
+                }];
+                [self addCheckBoxButton:button selectedStatus:result];
+            }
+        } else {
+            [self addCheckBoxButton:button selectedStatus:NO];
+        }
+        
         [tempMutableArray addObject:button];
         UIView *superView = [_dataSource checkBox:self supperViewAtIndex:i];
         [superView addSubview:button];
@@ -127,30 +142,35 @@
     _storyboardDataSource = storyboardDataSource;
     NSAssert(!_dataSource, @"此代理不能与dataSource一起设置");
     NSAssert([_storyboardDataSource respondsToSelector:@selector(numberOfStoryboardRowsInCheckBox:)], @"必须实现numberOfStoryboardRowsInCheckBox:方法");
+    NSAssert([_storyboardDataSource respondsToSelector:@selector(checkBox:buttonAtIndex:)], @"必须实现checkBox:buttonAtIndex:方法");
     NSInteger count = [_storyboardDataSource numberOfStoryboardRowsInCheckBox:self];
+    
     NSMutableArray *tempMutableArray = [NSMutableArray arrayWithCapacity:count];
-    if ([self isKindOfClass:[ZZSingleCheckBox class]]) {
-        BOOL hasOneSetSelected = NO;
-        for (NSInteger i = 0; i < count; i++) {
-            NSAssert([_storyboardDataSource respondsToSelector:@selector(checkBox:buttonAtIndex:)], @"必须实现checkBox:buttonAtIndex:方法");
-            ZZCheckBoxButton *button = [_storyboardDataSource checkBox:self buttonAtIndex:i];
-            button.tag = i;
-            if (hasOneSetSelected) {
-                button.selected = NO;
-            } else {
-                hasOneSetSelected = button.selected;
-            }
-        }
-        if (!hasOneSetSelected) {
-            ZZCheckBoxButton *button = [_storyboardDataSource checkBox:self buttonAtIndex:0];
-            button.selected = YES;
-        }
-    }
     
     for (NSInteger i = 0; i < count; i++) {
-        NSAssert([_storyboardDataSource respondsToSelector:@selector(checkBox:buttonAtIndex:)], @"必须实现checkBox:buttonAtIndex:方法");
         ZZCheckBoxButton *button = [_storyboardDataSource checkBox:self buttonAtIndex:i];
         if (button) {
+            button.tag = i;
+            NSArray<NSNumber *> *defaultSelectedIndexArray = nil;
+            if (_delegate && [_delegate respondsToSelector:@selector(defaultSelectedIndexInCheckBox:)]) {
+                defaultSelectedIndexArray = [_delegate defaultSelectedIndexInCheckBox:self];
+                if ([self isKindOfClass:[ZZSingleCheckBox class]]) {
+                    NSUInteger defaultSelectedIndex = [defaultSelectedIndexArray.lastObject integerValue];
+                    button.selected = (i == defaultSelectedIndex);
+                } else {
+                    __block BOOL result = NO;
+                    [defaultSelectedIndexArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        if (i == [obj integerValue]) {
+                            result = YES;
+                            *stop = YES;
+                        }
+                    }];
+                    button.selected = result;
+                }
+            } else {
+                button.selected = NO;
+            }
+            
             [self addCheckBoxButton:button selectedStatus:button.selected];
             [tempMutableArray addObject:button];
         }

@@ -94,8 +94,8 @@
 }
 
 #pragma mark - ZZCheckBoxDelegate
--(NSUInteger)defaultSelectedIndexInCheckBox:(ZZCheckBox *)checkBox {
-    return 1;
+-(NSArray<NSNumber *> *)defaultSelectedIndexInCheckBox:(ZZCheckBox *)checkBox {
+    return @[@1];
 }
 
 -(void)checkBox:(ZZCheckBox *)checkBox didDeselectedAtIndex:(NSInteger)index {
@@ -105,6 +105,13 @@
         NSLog(@"ZZMutableCheckBox Deselected %ld Button", index);
     }
     
+}
+
+-(BOOL)canCancleCheckSingleCheckBox:(ZZCheckBox *)checkBox {
+    if (checkBox.tag == 1) {
+        return YES;
+    }
+    return NO;
 }
 
 -(void)checkBox:(ZZCheckBox *)checkBox didSelectedAtIndex:(NSInteger)index {
